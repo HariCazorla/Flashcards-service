@@ -24,11 +24,15 @@ public class CardsDaoService {
      * @return
      */
     public List<Card> fetchAllCards() {
-        List<Card> result =cardsRepository.findAll();
+        List<Card> result = cardsRepository.findAll();
         result.stream()
                 .forEach(card -> {
                     System.out.println(card);
                 });
         return result;
+    }
+
+    public Object addCard(Card card) {
+        return cardsRepository.save(card);
     }
 }
