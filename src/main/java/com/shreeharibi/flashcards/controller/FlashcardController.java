@@ -4,9 +4,7 @@ import com.shreeharibi.flashcards.model.Card;
 import com.shreeharibi.flashcards.service.CardsDaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +29,16 @@ public class FlashcardController {
     @GetMapping("cards")
     public ResponseEntity<List<Card>> getCards() {
         return ResponseEntity.ok(cardsDaoService.fetchAllCards());
+    }
+
+    @PostMapping("cards/add")
+    public ResponseEntity<Object> addCard(
+            @RequestParam(required = true) String title,
+            @RequestParam(required = true) String description
+    ) {
+        Card card = new Card();
+        card.setTitle(title);
+        card.setValue(description);
+        return ResponseEntity.ok(cardsDaoService.addCard(card));
     }
 }
