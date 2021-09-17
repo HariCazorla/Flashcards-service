@@ -2,6 +2,8 @@ package com.shreeharibi.flashcards.controller;
 
 import com.shreeharibi.flashcards.model.Card;
 import com.shreeharibi.flashcards.service.CardsDaoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,7 @@ import java.util.List;
 @RequestMapping("api/v1/flashcards")
 public class FlashcardController {
 
+    Logger logger = LoggerFactory.getLogger(FlashcardController.class);
     private final CardsDaoService cardsDaoService;
     @Autowired
     public FlashcardController(CardsDaoService cardsDaoService) {
@@ -33,12 +36,9 @@ public class FlashcardController {
 
     @PostMapping("cards/add")
     public ResponseEntity<Object> addCard(
-            @RequestParam(required = true) String title,
-            @RequestParam(required = true) String description
+            @RequestBody(required = true) Card card
     ) {
-        Card card = new Card();
-        card.setTitle(title);
-        card.setValue(description);
+        logger.info("Adding crad " + card);
         return ResponseEntity.ok(cardsDaoService.addCard(card));
     }
 }
