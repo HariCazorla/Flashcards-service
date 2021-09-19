@@ -41,4 +41,11 @@ public class FlashcardController {
         logger.info("Adding crad " + card);
         return ResponseEntity.ok(cardsDaoService.addCard(card));
     }
+
+    @DeleteMapping("cards/delete")
+    public void deleteCard(
+            @RequestParam(required = true) String name
+    ) {
+        cardsDaoService.deleteCard(name);
+    }
 }
