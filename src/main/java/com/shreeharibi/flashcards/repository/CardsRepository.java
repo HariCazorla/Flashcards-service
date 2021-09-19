@@ -14,5 +14,5 @@ import java.util.Optional;
 public interface CardsRepository extends JpaRepository<Card, Long> {
 
     @Query("SELECT c FROM Card c WHERE c.title = ?1")
-    Optional<Card> findExpenseByName(String name);
+    Optional<Card> findCardByName(String name);
 }

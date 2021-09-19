@@ -35,4 +35,14 @@ public class CardsDaoService {
     public Object addCard(Card card) {
         return cardsRepository.save(card);
     }
+
+    public void deleteCard(String name) {
+        try {
+            Optional<Card> card = cardsRepository.findCardByName(name);
+            if (card.isPresent()) {
+                cardsRepository.delete(card.get());
+            }
+        } catch (Exception exception) {
+        }
+    }
 }
