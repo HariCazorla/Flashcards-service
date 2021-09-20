@@ -30,10 +30,53 @@ public class DefaultConfig {
                     2L
             );
 
+            Card card3 = new Card(
+                    "Junge",
+                    "Boy",
+                    3L
+            );
+
+            Card card4 = new Card(
+                    "Maedchen",
+                    "girl",
+                    4L
+            );
+
+            Card card5 = new Card(
+                    "Frau",
+                    "Women",
+                    5L
+            );
+
+            Card card6 = new Card(
+                    "Kinder",
+                    "kids",
+                    6L
+            );
+
+            Card card7 = new Card(
+                    "Hund",
+                    "Dog",
+                    7L
+            );
+
+            Card card8 = new Card(
+                    "Katze",
+                    "Cat",
+                    8L
+            );
+
             cardsRepository.saveAll(
                     List.of(
                             card1,
-                            card2
+                            card2,
+                            card3,
+                            card4,
+                            card4,
+                            card5,
+                            card6,
+                            card7,
+                            card8
                     )
             );
         };
