@@ -5,7 +5,7 @@ RUN mvn -e -B dependency:resolve
 RUN mvn -e -B dependency:resolve-plugins
 COPY src/main/java ./src/main/java
 COPY src/main/resources ./src/main/resources
-RUN mvn -e -B clean package
+RUN mvn -e -B clean test package
 
 
 FROM gcr.io/distroless/java:11
