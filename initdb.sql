@@ -1,2 +1,0 @@
-CREATE DATABASE flashcards;
-GRANT ALL PRIVILEGES ON DATABASE "flashcards" TO postgres;
