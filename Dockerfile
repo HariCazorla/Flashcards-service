@@ -9,6 +9,7 @@ RUN mvn -e -B clean test package
 
 
 FROM gcr.io/distroless/java:11
+LABEL org.opencontainers.image.source="https://github.com/HariCazorla/Flashcards-service"
 COPY --from=builder /workspace/target/*.jar /workspace/service.jar
 WORKDIR /workspace
 USER nonroot
