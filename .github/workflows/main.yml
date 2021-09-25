@@ -24,16 +24,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         
-      # Runs a single command using the runners shell.
-      - name: Run docker-compose
-        run: docker-compose up -d
+      # Login to github container registry.
+      - name: Perform docker login
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u HariCazorla --password-stdin
+             docker build . --tag ghcr.io/haricazorla/flashcards-service:latest
+             docker push ghcr.io/haricazorla/flashcards-service:latest
       
-      # Wait for 30s, let the postgres container come up.
-      - name: Sleep for 30 seconds
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '10s'
-          
-      # Check the started containers.
-      - name: List containers
-        run: docker-compose ps
