@@ -36,6 +36,5 @@ jobs:
         run: |
              echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u HariCazorla --password-stdin
              docker build . --tag ghcr.io/haricazorla/flashcards-service:latest
-             docker run ghcr.io/haricazorla/flashcards-service:latest
              docker push ghcr.io/haricazorla/flashcards-service:latest
       
