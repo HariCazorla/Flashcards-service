@@ -24,9 +24,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
       # Login to github container registry.
-      - name: Perform docker login
-        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u HariCazorla --password-stdin
+      - name: Perform build
+        run: |
+             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u HariCazorla --password-stdin
              docker build . --tag ghcr.io/haricazorla/flashcards-service:latest
+             docker run ghcr.io/haricazorla/flashcards-service:latest
              docker push ghcr.io/haricazorla/flashcards-service:latest
       
