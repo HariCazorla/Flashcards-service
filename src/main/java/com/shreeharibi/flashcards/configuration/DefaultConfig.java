@@ -1,11 +1,15 @@
 package com.shreeharibi.flashcards.configuration;
 
 import com.shreeharibi.flashcards.model.Card;
+import com.shreeharibi.flashcards.model.Role;
+import com.shreeharibi.flashcards.model.User;
 import com.shreeharibi.flashcards.repository.CardsRepository;
+import com.shreeharibi.flashcards.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,9 +19,11 @@ import java.util.List;
 public class DefaultConfig {
     @Bean
     CommandLineRunner commandLineRunner(
-            CardsRepository cardsRepository
+            CardsRepository cardsRepository,
+            UserService userService
     ) {
         return args -> {
+            // Add some cards
             Card card1 = new Card(
                     "Guten Morgen",
                     "Good Morning",
@@ -79,6 +85,16 @@ public class DefaultConfig {
                             card8
                     )
             );
+
+            // add some default users
+            userService.saveRole(new Role("ROLE_USER", null));
+            userService.saveRole(new Role("ROLE_ADMIN", null));
+
+            userService.saveUser(new User("Shree Hari", "shreehari", "shreehari", null, new ArrayList<>()));
+            userService.saveUser(new User("Manu", "manu", "manu", null, new ArrayList<>()));
+
+            userService.addRoleToUser("shreehari", "ROLE_ADMIN");
+            userService.addRoleToUser("manu", "ROLE_USER");
         };
     }
 }
