@@ -17,7 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
-@RestController("api/")
+@RestController("/api")
 @RequiredArgsConstructor
 @Slf4j
 public class UserController {
@@ -37,7 +37,7 @@ public class UserController {
     }
 
     @PostMapping("/roles/save")
-    public ResponseEntity<Role>saveUser(
+    public ResponseEntity<Role>saveRole(
             @RequestBody Role role
     ) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/roles/save").toUriString());
