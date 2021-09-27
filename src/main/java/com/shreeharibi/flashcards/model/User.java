@@ -8,8 +8,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-@Entity @Data
-@NoArgsConstructor @AllArgsConstructor
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     private String name;
     private String username;
@@ -18,5 +20,5 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
     @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Role> roles = new ArrayList<>();
+    private Collection<Role> roles = new ArrayList<Role>();
 }

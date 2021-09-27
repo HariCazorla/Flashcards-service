@@ -6,7 +6,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity @Data @NoArgsConstructor @AllArgsConstructor
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Role {
     private String name;
 
