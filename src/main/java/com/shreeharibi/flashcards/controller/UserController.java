@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
 import static java.util.Arrays.stream;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
-@RestController("/api")
+@RestController()
 @RequiredArgsConstructor
 @Slf4j
 public class UserController {
