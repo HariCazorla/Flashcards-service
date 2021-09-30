@@ -11,18 +11,17 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
 
 @ExtendWith(MockitoExtension.class)
-class CardsDaoServiceTest {
+class CardsServiceTest {
 
     @Mock
     private CardsRepository repository;
 
     @InjectMocks
-    private CardsDaoService service;
+    private CardsService service;
 
     @Test
     void fetchAllCards() {
