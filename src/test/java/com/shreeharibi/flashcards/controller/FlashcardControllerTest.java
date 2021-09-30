@@ -1,10 +1,9 @@
 package com.shreeharibi.flashcards.controller;
 
 import com.shreeharibi.flashcards.model.Card;
-import com.shreeharibi.flashcards.service.CardsDaoService;
+import com.shreeharibi.flashcards.service.CardsService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -12,14 +11,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class FlashcardControllerTest {
 
     @Mock
-    private CardsDaoService service;
+    private CardsService service;
 
     @InjectMocks
     private FlashcardController controller;

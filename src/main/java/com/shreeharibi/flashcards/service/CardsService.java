@@ -12,10 +12,10 @@ import java.util.Optional;
  * Class to fetch information from postgres db
  */
 @Service
-public class CardsDaoService {
+public class CardsService {
     private final CardsRepository cardsRepository;
     @Autowired
-    public CardsDaoService(CardsRepository cardsRepository) {
+    public CardsService(CardsRepository cardsRepository) {
         this.cardsRepository = cardsRepository;
     }
 

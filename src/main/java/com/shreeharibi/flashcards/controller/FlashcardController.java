@@ -1,7 +1,7 @@
 package com.shreeharibi.flashcards.controller;
 
 import com.shreeharibi.flashcards.model.Card;
-import com.shreeharibi.flashcards.service.CardsDaoService;
+import com.shreeharibi.flashcards.service.CardsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +18,9 @@ import java.util.List;
 public class FlashcardController {
 
     Logger logger = LoggerFactory.getLogger(FlashcardController.class);
-    private final CardsDaoService cardsDaoService;
+    private final CardsService cardsDaoService;
     @Autowired
-    public FlashcardController(CardsDaoService cardsDaoService) {
+    public FlashcardController(CardsService cardsDaoService) {
         this.cardsDaoService = cardsDaoService;
     }
 
