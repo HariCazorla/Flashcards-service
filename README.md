@@ -3,6 +3,7 @@ Flashcards are small note cards used for testing and improving memory through pr
 
 # Documentation
 Access Swagger at http://localhost:8080/swagger-ui.html#/
+
 To Run APIs follow below steps
 
 Application comes with pre configured admin user with credentials (username: shreehari, password:shreehari)
